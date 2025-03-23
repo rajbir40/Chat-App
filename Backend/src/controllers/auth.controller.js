@@ -82,4 +82,14 @@ export const signup = async (req, res) => {
       res.status(500).json({ message: "Internal Server Error" });
     }
   };
+
+  export const checkingAuth = async(req,res) => {
+    try{
+      res.status(200).json(req.user);
+    }
+    catch(err){
+      console.log("Error checking auth",err.message);
+      res.status(500).json({message:"Internal Server Error"});
+    }
+  }
   
